@@ -107,18 +107,11 @@ All colors MUST be HSL.
 @layer utilities {
   /* Healing-focused button variants */
   .btn-healing {
-    @apply bg-gradient-to-r from-primary to-accent text-white rounded-full px-8 py-4 font-semibold;
-    box-shadow: var(--shadow-warm);
-    transition: var(--transition-warm);
-  }
-  
-  .btn-healing:hover {
-    box-shadow: var(--shadow-soft);
+    @apply bg-gradient-to-r from-primary to-accent text-white shadow-warm hover:shadow-soft transition-warm rounded-full px-8 py-4 font-semibold;
   }
   
   .btn-gentle {
-    @apply bg-secondary/20 text-secondary hover:bg-secondary hover:text-white rounded-full px-6 py-3;
-    transition: var(--transition-gentle);
+    @apply bg-secondary/20 text-secondary hover:bg-secondary hover:text-white transition-gentle rounded-full px-6 py-3;
   }
 
   /* Text utilities */
