@@ -1,21 +1,23 @@
 import { CheckCircle, Brain, Heart, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import estherProfile from "@/assets/esther-profile.jpg";
 
 const AboutSection = () => {
   const specializations = [
     {
       icon: Brain,
-      title: "Trauma Complejo",
+      title: "Trauma complejo y TEPT",
       description: "Especialización en traumas de desarrollo y experiencias adversas repetidas"
     },
     {
       icon: Heart,
-      title: "EMDR Certificado",
+      title: "Terapia EMDR",
       description: "Certificación europea en EMDR para procesamiento de traumas"
     },
     {
       icon: Users,
-      title: "Neurodivergencia",
+      title: "Neurodivergencia en adultos",
       description: "Apoyo especializado a personas neurodivergentes incomprendidas"
     }
   ];
@@ -35,9 +37,17 @@ const AboutSection = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-heading font-bold">
-                Sobre <span className="text-gradient">Esther Benítez</span>
-              </h2>
+              <div className="flex items-center space-x-4 mb-6">
+                <Card className="border-border/50 bg-card/50 backdrop-blur-sm p-2">
+                  <Avatar className="h-16 w-16">
+                    <AvatarImage src={estherProfile} alt="Esther Benítez" />
+                    <AvatarFallback>EB</AvatarFallback>
+                  </Avatar>
+                </Card>
+                <h2 className="text-3xl sm:text-4xl font-heading font-bold">
+                  Sobre <span className="text-gradient">Esther Benítez</span>
+                </h2>
+              </div>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Psicóloga colegiada especializada en trauma complejo y terapia EMDR, 
                 con certificación europea. Mi enfoque se centra en acompañar a personas 
