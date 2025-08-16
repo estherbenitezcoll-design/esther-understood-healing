@@ -21,21 +21,19 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Usando FormSubmit - no requiere registro, solo confirmación por email
+      // Usando FormSubmit - requiere FormData, no JSON
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('_replyto', formData.email);
+      formDataToSend.append('_subject', `Nuevo mensaje de contacto de ${formData.name}`);
+      formDataToSend.append('_captcha', 'false');
+      formDataToSend.append('_template', 'table');
+
       const response = await fetch("https://formsubmit.co/eb.espacioliminal@gmail.com", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _replyto: formData.email,
-          _subject: `Nuevo mensaje de contacto de ${formData.name}`,
-          _captcha: "false",
-          _template: "table"
-        }),
+        body: formDataToSend,
       });
 
       if (response.ok) {
