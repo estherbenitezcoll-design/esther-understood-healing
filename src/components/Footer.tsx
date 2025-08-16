@@ -1,108 +1,60 @@
 import { Link } from "react-router-dom";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
-import logoSvg from "@/assets/logo.svg";
+import logoSvg from "@/assets/logo.png";
+
+// TikTok icon component since it's not in lucide-react
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+  </svg>
+);
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-white via-white via-40% to-[#287995] border-t border-border/50">
+    <footer className="bg-gradient-to-br from-white via-blue-50 via-30% via-blue-100 via-60% to-primary border-t border-border/50">
       <div className="container-warm py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        {/* Main Content */}
+        <div className="flex flex-col items-center space-y-8">
           {/* Brand */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2 hover:scale-110 hover:brightness-110 transition-all duration-300 hover:drop-shadow-lg">
-              <img src={logoSvg} alt="Logo" className="h-16 w-16" />
-              <span className="font-heading font-bold text-xl text-gradient">
+          <div className="text-center space-y-4">
+            <Link to="/" className="flex flex-col items-center justify-center space-y-2 hover:scale-110 hover:brightness-110 transition-all duration-300 hover:drop-shadow-lg">
+              <img src={logoSvg} alt="Logo" className="h-24 w-24" />
+              <span className="font-heading font-bold text-2xl text-gradient">
                 Esther Benítez
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Psicóloga especializada en trauma complejo, EMDR y apoyo a la neurodivergencia. 
-              Un espacio seguro donde sanar y crecer.
-            </p>
           </div>
 
-          {/* Navigation */}
-          <div className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground">
-              Navegación
-            </h4>
-            <div className="space-y-2">
-              <Link 
-                to="/" 
-                className="block text-muted-foreground hover:text-primary hover:scale-105 hover:translate-x-2 hover:font-semibold transition-all duration-300 text-sm"
-              >
-                Inicio
-              </Link>
-              <Link 
-                to="/about" 
-                className="block text-muted-foreground hover:text-primary hover:scale-105 hover:translate-x-2 hover:font-semibold transition-all duration-300 text-sm"
-              >
-                Sobre mí
-              </Link>
-              <Link 
-                to="/services" 
-                className="block text-muted-foreground hover:text-primary hover:scale-105 hover:translate-x-2 hover:font-semibold transition-all duration-300 text-sm"
-              >
-                Servicios
-              </Link>
-              <Link 
-                to="/contact" 
-                className="block text-muted-foreground hover:text-primary hover:scale-105 hover:translate-x-2 hover:font-semibold transition-all duration-300 text-sm"
-              >
-                Contacto
-              </Link>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground">
-              Servicios
-            </h4>
-            <div className="space-y-2">
-              <p className="text-muted-foreground text-sm">Terapia Online</p>
-              <p className="text-muted-foreground text-sm">Trauma Complejo</p>
-              <p className="text-muted-foreground text-sm">EMDR</p>
-              <p className="text-muted-foreground text-sm">Neurodivergencia</p>
-            </div>
-          </div>
-
-          {/* Contact & Social */}
-          <div className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground">
-              Contacto
-            </h4>
-            <div className="space-y-2">
-              <p className="text-muted-foreground text-sm">
-                contacto@estherbenitez.com
-              </p>
-              <p className="text-muted-foreground text-sm">
-                WhatsApp 24/7
-              </p>
-              <div className="flex space-x-3 pt-2">
-                <a 
-                  href="#" 
-                  className="text-muted-foreground hover:text-primary hover:scale-125 hover:rotate-12 hover:drop-shadow-lg transition-all duration-300"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a 
-                  href="#" 
-                  className="text-muted-foreground hover:text-primary hover:scale-125 hover:rotate-12 hover:drop-shadow-lg transition-all duration-300"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="h-5 w-5" />
-                </a>
-                <a 
-                  href="#" 
-                  className="text-muted-foreground hover:text-primary hover:scale-125 hover:rotate-12 hover:drop-shadow-lg transition-all duration-300"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
+          {/* Social Media */}
+          <div className="flex space-x-6">
+            <a 
+              href="#" 
+              className="text-muted-foreground hover:text-primary hover:scale-125 hover:rotate-12 hover:drop-shadow-lg transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-6 w-6" />
+            </a>
+            <a 
+              href="#" 
+              className="text-muted-foreground hover:text-primary hover:scale-125 hover:rotate-12 hover:drop-shadow-lg transition-all duration-300"
+              aria-label="TikTok"
+            >
+              <TikTokIcon className="h-6 w-6" />
+            </a>
+            <a 
+              href="#" 
+              className="text-muted-foreground hover:text-primary hover:scale-125 hover:rotate-12 hover:drop-shadow-lg transition-all duration-300"
+              aria-label="YouTube"
+            >
+              <Youtube className="h-6 w-6" />
+            </a>
+            <a 
+              href="#" 
+              className="text-muted-foreground hover:text-primary hover:scale-125 hover:rotate-12 hover:drop-shadow-lg transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-6 w-6" />
+            </a>
           </div>
         </div>
 

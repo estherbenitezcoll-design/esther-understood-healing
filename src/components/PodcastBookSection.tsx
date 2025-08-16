@@ -92,7 +92,7 @@ const PodcastBookSection = () => {
                     }
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Una guía íntima que combina experiencia clínica con narrativa personal.
+                    Todos saben quién fue Narciso… pero ¿quién era Eco?
                   </p>
                 </div>
               </div>
@@ -101,9 +101,7 @@ const PodcastBookSection = () => {
                 <div className="mt-6 space-y-4 animate-in slide-in-from-top-2 duration-300">
                   <div className="space-y-3">
                     <div className="text-sm text-muted-foreground leading-relaxed space-y-2">
-                      <p className="italic">"Todos saben quién fue Narciso…</p>
-                      <p className="italic">pero ¿quién era Eco?"</p>
-                      <p className="mt-3">Una voz que vuelve desde el eco del dolor.</p>
+                      <p>Una voz que vuelve desde el eco del dolor.</p>
                       <p>Un relato real que abraza, informa y despierta.</p>
                       <p>Porque sanar también es alzar la voz.</p>
                     </div>
