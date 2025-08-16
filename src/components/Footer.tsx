@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Heart, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Instagram, Youtube, Linkedin } from "lucide-react";
+import logoSvg from "@/assets/logo.svg";
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
-              <Heart className="h-8 w-8 text-primary" />
+              <img src={logoSvg} alt="Logo" className="h-8 w-8" />
               <span className="font-heading font-bold text-xl text-gradient">
                 Esther Benítez
               </span>

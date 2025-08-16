@@ -8,50 +8,63 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Esther's warm, healing color palette */
-    --background: 48 33% 97%; /* Soft beige #F8F8F5 */
-    --foreground: 200 9% 38%; /* Soft gray text #5F6368 */
+    /* Vibrant pastel palette for joyful harmony */
+    --background: 0 0% 100%; /* Pure white */
+    --foreground: 210 15% 25%; /* Soft charcoal */
 
-    --card: 48 33% 97%;
-    --card-foreground: 200 9% 38%;
+    --card: 0 0% 98%; /* Off-white */
+    --card-foreground: 210 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 9% 38%;
+    --popover-foreground: 210 15% 25%;
 
-    /* Turquoise/mint as primary - empathy accent */
-    --primary: 175 55% 46%; /* #3EB7B0 */
+    /* Soft sky blue as primary - cheerful and calming */
+    --primary: 200 60% 75%; /* Soft sky blue */
     --primary-foreground: 0 0% 100%;
 
-    /* Soft coral as secondary */
-    --secondary: 4 70% 73%; /* #F28B82 */
-    --secondary-foreground: 0 0% 100%;
+    /* Soft pink as secondary - warm and joyful */
+    --secondary: 320 45% 80%; /* Soft pink */
+    --secondary-foreground: 210 15% 25%;
 
-    /* Pumpkin orange for energy */
-    --accent: 33 85% 67%; /* #F4A261 */
-    --accent-foreground: 0 0% 100%;
+    /* Soft lavender as accent - gentle energy */
+    --accent: 280 40% 78%; /* Soft lavender */
+    --accent-foreground: 210 15% 25%;
 
-    /* Gentle, healing tones */
-    --muted: 48 33% 94%;
-    --muted-foreground: 200 9% 55%;
+    /* Additional pastel colors */
+    --tertiary: 160 35% 75%; /* Mint green */
+    --tertiary-foreground: 210 15% 25%;
+    
+    --quaternary: 30 50% 82%; /* Peach */
+    --quaternary-foreground: 210 15% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Light tones */
+    --muted: 60 30% 88%; /* Light yellow */
+    --muted-foreground: 210 10% 45%;
 
-    --border: 48 20% 88%;
-    --input: 48 20% 88%;
-    --ring: 175 55% 46%;
+    --destructive: 0 50% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 85%;
+    --input: 200 15% 90%;
+    --ring: 200 60% 75%;
 
     --radius: 0.75rem;
 
-    /* Warm gradients for healing energy */
-    --gradient-warm: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-calm: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --gradient-healing: linear-gradient(45deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+    /* Subtle gradients for gentle depth */
+    --gradient-light: linear-gradient(135deg, hsl(200, 40%, 92%) 0%, hsl(320, 30%, 92%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(60, 25%, 92%) 0%, hsl(30, 35%, 90%) 100%);
+    --gradient-healing: linear-gradient(135deg, hsl(200, 60%, 85%) 0%, hsl(320, 45%, 85%) 50%, hsl(160, 35%, 85%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 99%) 0%, hsl(200, 15%, 96%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(200, 50%, 95%) 0%, hsl(320, 40%, 95%) 100%);
 
-    /* Soft shadows for depth */
-    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
-    --shadow-warm: 0 8px 30px hsl(var(--accent) / 0.15);
-    --shadow-gentle: 0 2px 10px hsl(var(--foreground) / 0.05);
+    /* Colorful shadows for playful elevation */
+    --shadow-soft: 0 2px 8px hsla(210, 15%, 25%, 0.08);
+    --shadow-medium: 0 4px 16px hsla(210, 15%, 25%, 0.12);
+    --shadow-large: 0 8px 32px hsla(210, 15%, 25%, 0.16);
+    --shadow-blue: 0 4px 20px hsla(200, 60%, 75%, 0.2);
+    --shadow-pink: 0 4px 20px hsla(320, 45%, 80%, 0.2);
+    --shadow-lavender: 0 4px 20px hsla(280, 40%, 78%, 0.2);
+    --shadow-mint: 0 4px 20px hsla(160, 35%, 75%, 0.2);
 
     /* Healing transitions */
     --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -108,12 +121,12 @@ All colors MUST be HSL.
   /* Healing-focused button variants */
   .btn-healing {
     @apply bg-gradient-to-r from-primary to-accent text-white rounded-full px-8 py-4 font-semibold;
-    box-shadow: var(--shadow-warm);
+    box-shadow: var(--shadow-blue);
     transition: var(--transition-warm);
   }
   
   .btn-healing:hover {
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-pink);
   }
   
   .btn-gentle {
@@ -123,12 +136,38 @@ All colors MUST be HSL.
 
   /* Text utilities */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
   }
 
   /* Layout helpers */
   .container-warm {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-gentle {
+    @apply bg-card border border-border;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-gentle);
+  }
+
+  .card-gentle:hover {
+    box-shadow: var(--shadow-lavender);
+  }
+
+  .shadow-blue {
+    box-shadow: var(--shadow-blue);
+  }
+
+  .shadow-pink {
+    box-shadow: var(--shadow-pink);
+  }
+
+  .shadow-lavender {
+    box-shadow: var(--shadow-lavender);
+  }
+
+  .shadow-mint {
+    box-shadow: var(--shadow-mint);
   }
 
   .section-padding {
@@ -142,6 +181,10 @@ All colors MUST be HSL.
 
   .animate-gentle-slide {
     animation: gentle-slide 0.8s ease-out;
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
   }
 }
 
@@ -159,6 +202,25 @@ All colors MUST be HSL.
 @keyframes gentle-slide {
   from {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gentle-fade {
+  from {
+    opacity: 0;
     transform: translateX(-30px);
   }
   to {
@@ -166,3 +228,59 @@ All colors MUST be HSL.
     transform: translateX(0);
   }
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes cursor-trail {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 2s ease-in-out infinite;
+}
+
+/* Cursor trail effect */
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: cursor-trail 0.6s ease-out forwards;
+}
+
+.cursor-trail-1 { background: hsl(var(--primary)); }
+.cursor-trail-2 { background: hsl(var(--secondary)); }
+.cursor-trail-3 { background: hsl(var(--tertiary)); }
+.cursor-trail-4 { background: hsl(var(--accent)); }
+.cursor-trail-5 { background: hsl(var(--quaternary)); }

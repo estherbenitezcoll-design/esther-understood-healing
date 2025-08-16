@@ -1,9 +1,10 @@
 import { CheckCircle, Brain, Heart, Users } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import estherProfile from "@/assets/esther-profile.jpg";
+import { useState } from "react";
 
 const AboutSection = () => {
+  const [selectedSpec, setSelectedSpec] = useState<number | null>(null);
+  
   const specializations = [
     {
       icon: Brain,
@@ -31,78 +32,87 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-muted/20 to-background">
+    <section className="section-padding bg-gradient-to-r from-primary to-accent">
       <div className="container-warm">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4 mb-6">
-                <Card className="border-border/50 bg-card/50 backdrop-blur-sm p-2">
-                  <Avatar className="h-16 w-16">
-                    <AvatarImage src={estherProfile} alt="Esther Benítez" />
-                    <AvatarFallback>EB</AvatarFallback>
-                  </Avatar>
-                </Card>
-                <h2 className="text-3xl sm:text-4xl font-heading font-bold">
-                  Sobre <span className="text-gradient">Esther Benítez</span>
-                </h2>
-              </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Psicóloga colegiada especializada en trauma complejo y terapia EMDR, 
-                con certificación europea. Mi enfoque se centra en acompañar a personas 
-                que han sido etiquetadas injustamente como "locas" o "vagas", ofreciendo 
-                un espacio seguro de comprensión y sanación.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Creo firmemente que cada persona tiene una historia única que merece 
-                ser escuchada y validada. Mi trabajo se basa en la comprensión profunda 
-                del trauma y la neurodivergencia, alejándome de enfoques rígidos para 
-                ofrecer terapia verdaderamente personalizada.
-              </p>
-            </div>
+        <div className="text-center mb-8">
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white">
+            Sobre <span className="text-white/90">mí</span>
+          </h2>
+        </div>
 
-            {/* Approach points */}
-            <div className="space-y-3">
-              <h3 className="text-xl font-heading font-semibold text-foreground">
-                Mi enfoque terapéutico:
-              </h3>
-              <div className="space-y-3">
-                {approaches.map((approach, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-muted-foreground">{approach}</span>
-                  </div>
-                ))}
-              </div>
+        <div className="max-w-6xl mx-auto relative">
+  
+          
+          {/* Layout reorganizado: texto arriba, foto y tarjetas abajo */}
+          <div className="space-y-8 mb-12 relative z-20">
+            {/* Texto de presentación */}
+            <div className="text-center">
+              <p className="text-white text-lg sm:text-xl lg:text-2xl font-light leading-relaxed max-w-4xl mx-auto">
+                Creo firmemente que cada persona tiene una historia única que merece ser escuchada y validada. Mi trabajo se basa en la comprensión profunda del trauma y la neurodivergencia.
+              </p>
             </div>
           </div>
 
-          {/* Specializations */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-heading font-semibold text-center">
-              Especializaciones
-            </h3>
-            <div className="space-y-4">
-              {specializations.map((spec, index) => (
-                <Card key={index} className="border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-soft transition-gentle">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-gradient-to-br from-primary to-accent p-3 rounded-lg">
-                        <spec.icon className="h-6 w-6 text-white" />
+          {/* Foto centrada con enfoque terapéutico y especializaciones */}
+          <div className="grid lg:grid-cols-3 gap-8 items-center relative z-20">
+
+            {/* Enfoque terapéutico */}
+            <div className="bg-white backdrop-blur-sm p-8 rounded-2xl shadow-2xl min-h-[400px] flex flex-col">
+              <h3 className="text-xl font-heading font-semibold mb-6 text-gray-800">
+                Mi enfoque terapéutico:
+              </h3>
+              <div className="space-y-3 flex-grow">
+                {approaches.map((approach, index) => {
+                    const colors = ['text-blue-200', 'text-purple-200', 'text-teal-200', 'text-pink-200', 'text-indigo-200'];
+                    return (
+                      <div key={index} className="flex items-start space-x-3">
+                        <CheckCircle className={`h-5 w-5 ${colors[index % colors.length]} mt-0.5 flex-shrink-0`} />
+                        <span className="text-sm text-gray-700">{approach}</span>
                       </div>
-                      <div className="space-y-2">
-                        <h4 className="font-heading font-semibold text-foreground">
-                          {spec.title}
-                        </h4>
-                        <p className="text-muted-foreground">
-                          {spec.description}
-                        </p>
+                    );
+                  })}
+              </div>
+            </div>
+
+            {/* Foto centrada */}
+            <div className="flex justify-center">
+              <img
+                src={estherProfile}
+                alt="Esther - Psicóloga especializada en trauma y neurodivergencia"
+                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover object-top shadow-2xl border-4 border-white"
+              />
+            </div>
+
+            {/* Especializaciones */}
+            <div className="bg-white backdrop-blur-sm p-8 rounded-2xl shadow-2xl min-h-[400px] flex flex-col">
+              <h3 className="text-xl font-heading font-semibold mb-6 text-gray-800">
+                Especializaciones:
+              </h3>
+              <div className="space-y-3 flex-grow">
+                {specializations.map((spec, index) => {
+                  const IconComponent = spec.icon;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedSpec(selectedSpec === index ? null : index)}
+                      className="w-full bg-gradient-to-r from-primary to-accent text-white px-4 py-3 rounded-xl font-medium text-sm hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                    >
+                      <div className="flex items-center justify-center space-x-2">
+                        <IconComponent className="h-4 w-4" />
+                        <span>{spec.title}</span>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </button>
+                  );
+                })}
+              </div>
+              
+              {selectedSpec !== null && (
+                <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+                  <p className="text-sm text-gray-700">
+                    {specializations[selectedSpec].description}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

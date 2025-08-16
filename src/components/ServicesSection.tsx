@@ -43,21 +43,31 @@ const ServicesSection = () => {
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <Card key={index} className="text-center border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-soft transition-gentle">
-                  <CardContent className="p-6 space-y-4">
-                    <div className="bg-gradient-to-br from-primary to-accent p-3 rounded-full w-fit mx-auto">
-                      <feature.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="font-heading font-semibold text-foreground">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+              {features.map((feature, index) => {
+                const colors = [
+                  { bg: 'bg-primary', shadow: 'shadow-blue' },
+                  { bg: 'bg-secondary', shadow: 'shadow-pink' },
+                  { bg: 'bg-tertiary', shadow: 'shadow-mint' },
+                  { bg: 'bg-accent', shadow: 'shadow-lavender' }
+                ];
+                const colorSet = colors[index % colors.length];
+                
+                return (
+                  <Card key={index} className={`text-center border-border/50 bg-card/50 backdrop-blur-sm hover:${colorSet.shadow} transition-gentle`}>
+                    <CardContent className="p-6 space-y-4">
+                      <div className={`${colorSet.bg} p-3 rounded-full w-fit mx-auto`}>
+                        <feature.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <h3 className="font-heading font-semibold text-foreground">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {feature.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
 
