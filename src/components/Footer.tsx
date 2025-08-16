@@ -11,7 +11,7 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-white via-blue-50 via-30% via-blue-100 via-60% to-primary border-t border-border/50">
+    <footer className="bg-gradient-to-t from-primary via-blue-200 via-30% via-amber-50 via-60% to-stone-50 border-t border-border/50">
       <div className="container-warm py-12">
         {/* Main Content */}
         <div className="flex flex-col items-center space-y-8">
