@@ -17,15 +17,17 @@ const PodcastBookSection = () => {
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white">
             Podcast & <span className="text-white/90">Libro</span>
           </h2>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Recursos adicionales para tu proceso de autoconocimiento y sanación
-          </p>
+
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Podcast Card */}
           <Card className="bg-gradient-to-br from-primary/5 via-card to-primary/10 border-primary/20 shadow-soft cursor-pointer"
-                onClick={() => setExpandedPodcast(!expandedPodcast)}>
+                onClick={() => {
+                  const newState = !expandedPodcast;
+                  setExpandedPodcast(newState);
+                  setExpandedBook(newState);
+                }}>
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
                 {/* Podcast Cover Placeholder */}
@@ -73,7 +75,11 @@ const PodcastBookSection = () => {
 
           {/* Book Card */}
           <Card className="bg-gradient-to-br from-secondary/5 via-card to-secondary/10 border-secondary/20 shadow-soft cursor-pointer"
-                onClick={() => setExpandedBook(!expandedBook)}>
+                onClick={() => {
+                  const newState = !expandedBook;
+                  setExpandedBook(newState);
+                  setExpandedPodcast(newState);
+                }}>
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
                 {/* Book Cover Placeholder */}
