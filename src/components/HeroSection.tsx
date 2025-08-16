@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Play, BookOpen } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import liminalBackground from "@/assets/liminal-background.jpg";
 
 const HeroSection = () => {
@@ -27,19 +27,11 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-             <Button variant="outline" size="lg" className="bg-primary/25 hover:bg-primary/40 text-primary border-2 border-primary/50 shadow-lg shadow-blue hover:shadow-xl hover:shadow-blue transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-md">
-               <Play className="mr-2 h-5 w-5" />
-               Escuchar podcast
-             </Button>
+          {/* CTA */}
+          <div className="flex justify-center">
              <Button size="lg" className="btn-healing px-8 py-4 text-lg">
                <BookOpen className="mr-2 h-5 w-5" />
                Reservar mi sesión online
-             </Button>
-             <Button variant="outline" size="lg" className="bg-primary/25 hover:bg-primary/40 text-primary border-2 border-primary/50 shadow-lg shadow-blue hover:shadow-xl hover:shadow-blue transition-all duration-300 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-md">
-               <Heart className="mr-2 h-5 w-5" />
-               Libro disponible
              </Button>
            </div>
         </div>
