@@ -41,155 +41,83 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center space-x-3">
-                  <MessageSquare className="h-6 w-6 text-primary" />
-                  <div>
-                    <h4 className="font-heading font-semibold">WhatsApp 24/7</h4>
-                    <p className="text-sm text-muted-foreground">Respuesta rápida</p>
-                  </div>
-                </div>
-                <Button className="btn-healing w-full">
-                  Escribir por WhatsApp
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-6 w-6 text-secondary" />
-                  <div>
-                    <h4 className="font-heading font-semibold">Email</h4>
-                    <p className="text-sm text-muted-foreground">contacto@estherbenitez.com</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Clock className="h-6 w-6 text-accent" />
-                  <div>
-                    <h4 className="font-heading font-semibold">Horarios</h4>
-                    <p className="text-sm text-muted-foreground">Lunes a viernes: 9:00 - 20:00</p>
-                    <p className="text-sm text-muted-foreground">Sábados: 9:00 - 15:00</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-6 w-6 text-primary" />
-                  <div>
-                    <h4 className="font-heading font-semibold">Modalidad</h4>
-                    <p className="text-sm text-muted-foreground">100% Online</p>
-                    <p className="text-sm text-muted-foreground">Desde cualquier lugar</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm shadow-soft">
-              <CardHeader>
-                <CardTitle className="text-2xl font-heading font-bold text-center">
-                  Envíame un mensaje
-                </CardTitle>
-                <p className="text-muted-foreground text-center">
-                  Cuéntame brevemente sobre tu situación y cómo puedo ayudarte
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="font-medium">
-                        Nombre completo
-                      </Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Tu nombre"
-                        required
-                        className="bg-background/50 border-border/50 focus:border-primary transition-gentle"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="font-medium">
-                        Email
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="tu@email.com"
-                        required
-                        className="bg-background/50 border-border/50 focus:border-primary transition-gentle"
-                      />
-                    </div>
-                  </div>
-                  
+        {/* Simplified Contact Form */}
+        <div className="max-w-2xl mx-auto">
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm shadow-soft">
+            <CardContent className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="font-medium">
-                      Mensaje
+                    <Label htmlFor="name" className="font-medium">
+                      Nombre completo
                     </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
-                      placeholder="Cuéntame brevemente sobre tu situación y cómo puedo acompañarte en tu proceso..."
+                      placeholder="Tu nombre"
                       required
-                      className="min-h-[120px] bg-background/50 border-border/50 focus:border-primary transition-gentle resize-none"
+                      className="bg-background/50 border-border/50 focus:border-primary transition-gentle"
                     />
                   </div>
-
-                  <div className="space-y-4">
-                    <Button type="submit" className="btn-healing w-full text-lg py-6">
-                      Enviar mensaje
-                    </Button>
-                    <p className="text-xs text-muted-foreground text-center">
-                      Te responderé en menos de 24 horas. Tu privacidad y confidencialidad 
-                      están completamente protegidas.
-                    </p>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="font-medium">
+                      Email
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="tu@email.com"
+                      required
+                      className="bg-background/50 border-border/50 focus:border-primary transition-gentle"
+                    />
                   </div>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="font-medium">
+                    Mensaje
+                  </Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Cuéntame brevemente sobre tu situación y cómo puedo acompañarte en tu proceso..."
+                    required
+                    className="min-h-[140px] bg-background/50 border-border/50 focus:border-primary transition-gentle resize-none"
+                  />
+                </div>
+
+                <div className="space-y-4">
+                   <Button type="submit" className="btn-healing w-full text-lg py-6">
+                     Enviar mensaje
+                   </Button>
+                 </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12 space-y-6 p-8 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 rounded-2xl border border-border/50">
-          <h3 className="text-2xl font-heading font-semibold">
-            ¿Prefieres hablar directamente?
-          </h3>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Si te sientes más cómodo/a con una conversación telefónica o por WhatsApp, 
-            estaré encantada de atenderte y resolver todas tus dudas.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="btn-healing">
-              WhatsApp directo
+        {/* Contact Options */}
+        <div className="text-center mt-8 space-y-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <Button className="btn-healing flex-1">
+              <MessageSquare className="mr-2 h-4 w-4" />
+              WhatsApp
             </Button>
-            <Button variant="outline" className="bg-background border-primary text-primary hover:bg-primary hover:text-white transition-gentle">
-              Agendar llamada
+            <Button variant="outline" className="bg-background border-primary/30 text-primary hover:bg-primary/10 transition-gentle flex-1">
+              <Mail className="mr-2 h-4 w-4" />
+              Email directo
             </Button>
           </div>
+          <p className="text-sm text-muted-foreground max-w-md mx-auto">
+             Te responderé en menos de 24 horas. Tu privacidad y confidencialidad están completamente protegidas.
+           </p>
         </div>
       </div>
     </section>

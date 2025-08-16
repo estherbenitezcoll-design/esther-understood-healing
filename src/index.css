@@ -18,53 +18,53 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 210 15% 25%;
 
-    /* Soft sky blue as primary - cheerful and calming */
-    --primary: 200 60% 75%; /* Soft sky blue */
-    --primary-foreground: 0 0% 100%;
+    /* Soft blue as primary - calming and harmonious with hero */
+    --primary: 210 45% 75%; /* Soft pastel blue */
+    --primary-foreground: 210 25% 25%;
 
-    /* Soft pink as secondary - warm and joyful */
-    --secondary: 320 45% 80%; /* Soft pink */
-    --secondary-foreground: 210 15% 25%;
+    /* Warm beige as secondary - complementing hero background */
+    --secondary: 45 35% 85%; /* Warm beige pastel */
+    --secondary-foreground: 210 25% 25%;
 
-    /* Soft lavender as accent - gentle energy */
-    --accent: 280 40% 78%; /* Soft lavender */
-    --accent-foreground: 210 15% 25%;
+    /* Light blue-gray as accent - gentle and clean */
+    --accent: 220 30% 80%; /* Light blue-gray */
+    --accent-foreground: 210 25% 25%;
 
-    /* Additional pastel colors */
-    --tertiary: 160 35% 75%; /* Mint green */
-    --tertiary-foreground: 210 15% 25%;
+    /* Additional harmonious colors */
+    --tertiary: 200 40% 70%; /* Deeper blue for titles */
+    --tertiary-foreground: 0 0% 100%;
     
-    --quaternary: 30 50% 82%; /* Peach */
-    --quaternary-foreground: 210 15% 25%;
+    --quaternary: 210 20% 60%; /* Blue-gray for titles */
+    --quaternary-foreground: 0 0% 100%;
 
-    /* Light tones */
-    --muted: 60 30% 88%; /* Light yellow */
+    /* Light blue tones */
+    --muted: 220 25% 88%; /* Light blue-gray */
     --muted-foreground: 210 10% 45%;
 
     --destructive: 0 50% 70%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 20% 85%;
-    --input: 200 15% 90%;
-    --ring: 200 60% 75%;
+    --border: 210 25% 85%;
+    --input: 220 20% 90%;
+    --ring: 210 70% 65%;
 
     --radius: 0.75rem;
 
-    /* Subtle gradients for gentle depth */
-    --gradient-light: linear-gradient(135deg, hsl(200, 40%, 92%) 0%, hsl(320, 30%, 92%) 100%);
-    --gradient-warm: linear-gradient(135deg, hsl(60, 25%, 92%) 0%, hsl(30, 35%, 90%) 100%);
-    --gradient-healing: linear-gradient(135deg, hsl(200, 60%, 85%) 0%, hsl(320, 45%, 85%) 50%, hsl(160, 35%, 85%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 99%) 0%, hsl(200, 15%, 96%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(200, 50%, 95%) 0%, hsl(320, 40%, 95%) 100%);
+    /* Blue-beige gradients harmonizing with hero background */
+    --gradient-light: linear-gradient(135deg, hsl(210, 40%, 92%) 0%, hsl(45, 30%, 90%) 50%, hsl(220, 25%, 92%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(45, 35%, 88%) 0%, hsl(210, 30%, 90%) 50%, hsl(200, 25%, 88%) 100%);
+    --gradient-healing: linear-gradient(135deg, hsl(210, 45%, 85%) 0%, hsl(45, 30%, 87%) 30%, hsl(220, 35%, 85%) 70%, hsl(200, 30%, 88%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 99%) 0%, hsl(45, 20%, 96%) 40%, hsl(210, 15%, 97%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210, 35%, 94%) 0%, hsl(45, 25%, 92%) 30%, hsl(220, 20%, 94%) 70%, hsl(200, 15%, 95%) 100%);
 
-    /* Colorful shadows for playful elevation */
+    /* Soft blue-gray shadows for gentle elevation */
     --shadow-soft: 0 2px 8px hsla(210, 15%, 25%, 0.08);
     --shadow-medium: 0 4px 16px hsla(210, 15%, 25%, 0.12);
     --shadow-large: 0 8px 32px hsla(210, 15%, 25%, 0.16);
-    --shadow-blue: 0 4px 20px hsla(200, 60%, 75%, 0.2);
-    --shadow-pink: 0 4px 20px hsla(320, 45%, 80%, 0.2);
-    --shadow-lavender: 0 4px 20px hsla(280, 40%, 78%, 0.2);
-    --shadow-mint: 0 4px 20px hsla(160, 35%, 75%, 0.2);
+    --shadow-blue: 0 4px 20px hsla(210, 45%, 75%, 0.15);
+    --shadow-violet: 0 4px 20px hsla(220, 30%, 80%, 0.15);
+    --shadow-periwinkle: 0 4px 20px hsla(200, 40%, 70%, 0.15);
+    --shadow-steel: 0 4px 20px hsla(210, 25%, 65%, 0.15);
 
     /* Healing transitions */
     --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -120,13 +120,13 @@ All colors MUST be HSL.
 @layer utilities {
   /* Healing-focused button variants */
   .btn-healing {
-    @apply bg-gradient-to-r from-primary to-accent text-white rounded-full px-8 py-4 font-semibold;
+    @apply bg-gradient-to-r from-tertiary via-primary to-accent text-white rounded-full px-8 py-4 font-semibold;
     box-shadow: var(--shadow-blue);
     transition: var(--transition-warm);
   }
   
   .btn-healing:hover {
-    box-shadow: var(--shadow-pink);
+    box-shadow: var(--shadow-violet);
   }
   
   .btn-gentle {
@@ -136,7 +136,7 @@ All colors MUST be HSL.
 
   /* Text utilities */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-tertiary via-quaternary to-primary bg-clip-text text-transparent;
   }
 
   /* Layout helpers */
@@ -151,24 +151,24 @@ All colors MUST be HSL.
   }
 
   .card-gentle:hover {
-    box-shadow: var(--shadow-lavender);
+    box-shadow: var(--shadow-periwinkle);
   }
 
   .shadow-blue {
     box-shadow: var(--shadow-blue);
   }
 
-  .shadow-pink {
-    box-shadow: var(--shadow-pink);
-  }
+  .shadow-violet {
+  box-shadow: var(--shadow-violet);
+}
 
-  .shadow-lavender {
-    box-shadow: var(--shadow-lavender);
-  }
+.shadow-periwinkle {
+  box-shadow: var(--shadow-periwinkle);
+}
 
-  .shadow-mint {
-    box-shadow: var(--shadow-mint);
-  }
+.shadow-steel {
+  box-shadow: var(--shadow-steel);
+}
 
   .section-padding {
     @apply py-16 sm:py-20 lg:py-24;

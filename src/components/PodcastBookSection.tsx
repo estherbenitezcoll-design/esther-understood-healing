@@ -8,20 +8,23 @@ const PodcastBookSection = () => {
   const [expandedBook, setExpandedBook] = useState(false);
 
   return (
-    <section className="section-padding bg-gradient-to-br from-background via-muted/20 to-background">
-      <div className="container-warm">
+    <section className="section-padding bg-gradient-to-r from-primary to-accent relative overflow-hidden">
+      {/* Decorative background effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-secondary/60 to-accent/80 opacity-90"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tl from-transparent via-white/5 to-white/10"></div>
+      <div className="container-warm relative z-10">
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold">
-            Podcast & <span className="text-gradient">Libro</span>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-white">
+            Podcast & <span className="text-white/90">Libro</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
             Recursos adicionales para tu proceso de autoconocimiento y sanación
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Podcast Card */}
-          <Card className="bg-gradient-to-br from-primary/5 via-card to-primary/10 border-primary/20 shadow-soft hover:shadow-lg transition-all duration-300 cursor-pointer"
+          <Card className="bg-gradient-to-br from-primary/5 via-card to-primary/10 border-primary/20 shadow-soft cursor-pointer"
                 onClick={() => setExpandedPodcast(!expandedPodcast)}>
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
@@ -41,7 +44,7 @@ const PodcastBookSection = () => {
                     }
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Un espacio de reflexión y validación sobre trauma, neurodivergencia y salud mental.
+                    Un espacio para quienes han sentido que llegaban tarde a su propio diagnóstico.
                   </p>
                 </div>
               </div>
@@ -49,29 +52,9 @@ const PodcastBookSection = () => {
               {expandedPodcast && (
                 <div className="mt-6 space-y-4 animate-in slide-in-from-top-2 duration-300">
                   <div className="space-y-3">
-                    <h4 className="font-heading font-semibold text-foreground">
-                      Episodios destacados:
-                    </h4>
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-3 p-2 bg-background/50 rounded-lg">
-                        <Play className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          "Desmitificando el trauma complejo"
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-3 p-2 bg-background/50 rounded-lg">
-                        <Play className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          "La neurodivergencia invisible"
-                        </span>
-                      </div>
-                      <div className="flex items-center space-x-3 p-2 bg-background/50 rounded-lg">
-                        <Play className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          "Herramientas de autorregulación"
-                        </span>
-                      </div>
-                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Ni loca ni vaga combina psicología, experiencias reales y reflexión crítica para dar voz y sentido a la neurodivergencia y al trauma.
+                    </p>
                   </div>
 
                   <div className="space-y-3">
@@ -80,7 +63,7 @@ const PodcastBookSection = () => {
                       Escuchar podcast
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">
-                      Disponible en Spotify, Apple Podcasts y YouTube
+                      Disponible en YouTube
                     </p>
                   </div>
                 </div>
@@ -89,7 +72,7 @@ const PodcastBookSection = () => {
           </Card>
 
           {/* Book Card */}
-          <Card className="bg-gradient-to-br from-secondary/5 via-card to-secondary/10 border-secondary/20 shadow-soft hover:shadow-lg transition-all duration-300 cursor-pointer"
+          <Card className="bg-gradient-to-br from-secondary/5 via-card to-secondary/10 border-secondary/20 shadow-soft cursor-pointer"
                 onClick={() => setExpandedBook(!expandedBook)}>
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
@@ -101,7 +84,7 @@ const PodcastBookSection = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-heading font-bold text-foreground mb-2">
-                      "El día que eco recuperó su voz"
+                      "El día que Eco recuperó su voz"
                     </h3>
                     {expandedBook ? 
                       <ChevronUp className="h-5 w-5 text-muted-foreground flex-shrink-0" /> : 
@@ -117,34 +100,12 @@ const PodcastBookSection = () => {
               {expandedBook && (
                 <div className="mt-6 space-y-4 animate-in slide-in-from-top-2 duration-300">
                   <div className="space-y-3">
-                    <h4 className="font-heading font-semibold text-foreground">
-                      En este libro encontrarás:
-                    </h4>
-                    <div className="space-y-2">
-                      <div className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">
-                          Herramientas prácticas de autorregulación emocional
-                        </span>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">
-                          Estrategias para reconocer y sanar patrones traumáticos
-                        </span>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">
-                          Ejercicios de reconexión con tu voz interior auténtica
-                        </span>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">
-                          Reflexiones sobre neurodivergencia y autocompasión
-                        </span>
-                      </div>
+                    <div className="text-sm text-muted-foreground leading-relaxed space-y-2">
+                      <p className="italic">"Todos saben quién fue Narciso…</p>
+                      <p className="italic">pero ¿quién era Eco?"</p>
+                      <p className="mt-3">Una voz que vuelve desde el eco del dolor.</p>
+                      <p>Un relato real que abraza, informa y despierta.</p>
+                      <p>Porque sanar también es alzar la voz.</p>
                     </div>
                   </div>
 

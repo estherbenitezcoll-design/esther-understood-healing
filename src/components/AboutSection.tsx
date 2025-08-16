@@ -63,7 +63,7 @@ const AboutSection = () => {
               </h3>
               <div className="space-y-3 flex-grow">
                 {approaches.map((approach, index) => {
-                    const colors = ['text-blue-200', 'text-purple-200', 'text-teal-200', 'text-pink-200', 'text-indigo-200'];
+                    const colors = ['text-blue-200', 'text-purple-200', 'text-violet-200', 'text-indigo-200', 'text-sky-200'];
                     return (
                       <div key={index} className="flex items-start space-x-3">
                         <CheckCircle className={`h-5 w-5 ${colors[index % colors.length]} mt-0.5 flex-shrink-0`} />
