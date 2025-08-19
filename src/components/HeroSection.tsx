@@ -20,10 +20,10 @@ const HeroSection = () => {
         <div className="text-center space-y-20 animate-gentle-fade max-w-4xl mx-auto">
           <div className="space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold leading-tight text-white animate-heartbeat">
-              Haz que la terapia te acompañe.
+              El espacio donde volver a ti.
             </h1>
             <p className="text-lg sm:text-xl text-white leading-relaxed max-w-3xl mx-auto font-normal">
-              Soy Esther Benítez, psicóloga especializada en trauma complejo y TEPT, terapia EMDR y acompañamiento a personas adultas neurodivergentes.
+              Psicología online especializada en trauma y neurodivergencias, para poder volver a ti.
             </p>
           </div>
 
