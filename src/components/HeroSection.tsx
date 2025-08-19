@@ -23,7 +23,7 @@ const HeroSection = () => {
               El espacio donde volver a ti.
             </h1>
             <p className="text-lg sm:text-xl text-white leading-relaxed max-w-3xl mx-auto font-normal">
-              Psicología online especializada en trauma y neurodivergencias, para poder volver a ti.
+              Psicología online especializada en trauma y neurodivergencias. Te acompaño hasta que seas quien quieras ser fuera de las exigencias del exterior.
             </p>
           </div>
 
